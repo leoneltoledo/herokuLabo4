@@ -1,0 +1,12 @@
+h1{
+    background-color: black;
+    color: white;
+    margin-bottom: 3rem;
+    padding: 2rem;
+  }
+  @media screen and (max-width: 600px)
+  {
+    h1{
+        text-align: center;
+    }
+  }

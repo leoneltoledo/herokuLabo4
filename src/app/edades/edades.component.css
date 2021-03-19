@@ -1,0 +1,46 @@
+p{
+color: red;
+}
+.texto{
+    width: 20rem;
+}
+label{
+    margin: 0.5rem
+}
+#general{
+justify-content: center;
+display: flex;
+}
+#ejercicio{
+    background-color: lightblue;
+    display: flex;
+    background-position: center;
+    flex-direction:column;
+    flex-wrap: wrap;
+    height: 35rem;
+    width: 25rem;
+    justify-content: center;
+    align-content: center;
+    border-radius: 5%;
+}
+#limpiar{
+    margin-bottom: 90px;;
+    margin-top: 50px;
+}
+.resultado{
+    padding-top: 1.8rem;
+    display: flex;
+    background-position: center;
+    flex-direction:column;
+    flex-wrap: wrap;
+    color: black;
+    align-content: center;
+    margin: 2rem;
+    border-radius: 5%;
+    width: 15rem;
+    height: 10rem;
+    background-color: lightpink;
+}
+input,button{
+    margin-bottom: 1rem;
+}
