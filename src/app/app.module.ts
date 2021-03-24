@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { BienvenidoComponent } from './bienvenido/bienvenido.component';
 import { ErrorComponent } from './error/error.component';
+import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ErrorComponent } from './error/error.component';
     HomeComponent,
     LoginComponent,
     BienvenidoComponent,
-    ErrorComponent
+    ErrorComponent,
+    QuienSoyComponent
   ],
   imports: [
     BrowserModule,
