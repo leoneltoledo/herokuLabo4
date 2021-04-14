@@ -7,15 +7,33 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-<button><a routerLink="/">Home</a></button>
-<br>
-
-<p>Usuario = admin</p>
-<p>Contraseña = admin</p>
-<input type="text" name="usuario" [(ngModel)]="nombre" placeholder="Usuario">
-<br>
-<br>
-<input type="password" name="pass" [(ngModel)]="clave" placeholder="Contraseña">
-<br>
-<br>
-<button class="btn btn-secondary" (click)="login()">Login</button>
+<body class="text-center">
+    <form class="form-signin">
+      <h1 class="h3 mb-3 font-weight-normal">Por favor, ingrese sus datos</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" [(ngModel)]="usuario.mail" [ngModelOptions]="{standalone: true}" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" [(ngModel)]="usuario.password" [ngModelOptions]="{standalone: true}" id="inputPassword" class="form-control" placeholder="Password" required>
+      <!--<div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>-->
+      <button class="btn btn-lg btn-secondary btn-block"  (click)="Onsignin(usuario.mail, usuario.password)">Login</button>
+      <br>
+      <br>
+      <button class="btn btn-lg btn-dark" (click)="admin1()">ADMIN 1</button>
+      <br>
+      <br>
+      <button class="btn btn-lg btn-dark" (click)="admin2()">ADMIN 2</button>
+      <br>
+      <br>
+      <div id="errorBox" class="box" hidden="true">
+        <label id="error">El correo electrónico y/o contraseña son incorrectos. Reintentar</label>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+    </form>
+</body>
