@@ -146,10 +146,7 @@ export class TatetiComponent implements OnInit {
   }
 
   CargarPuntaje(resultado: number) {
-      if (resultado)
-          this.auth.SetPuntajeGano("tateti");
-      else 
-          this.auth.SetPuntajePerdio("tateti");
+    //CARGAR PUNTOS ACA
   }
 
 }
