@@ -13,6 +13,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { RegistroComponent } from './registro/registro.component';
 import { AuthService } from './services/auth.service';
+import { ChatComponent } from './chat/chat.component';
+import { TatetiComponent } from './juegos/tateti/tateti.component';
+import { PptComponent } from './juegos/ppt/ppt.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { AuthService } from './services/auth.service';
     LoginComponent,
     ErrorComponent,
     QuienSoyComponent,
-    RegistroComponent
+    RegistroComponent,
+    ChatComponent,
+    TatetiComponent,
+    PptComponent
   ],
   imports: [
     BrowserModule,

@@ -55,4 +55,34 @@ export class AuthService {
     console.log('Log guardado');
     return this.logsList.add({...log});
   }
+
+  async SetPuntajeGano(nombre: string) {
+    /*const user = await this.getCurrentUser();
+    const date = new Date();
+    const userRef: AngularFirestoreDocument<string> = this.afs.doc(`${nombre}/${user.uid}`);
+    const userData: any = {
+        uid: user.uid,
+        createdAt: date.toLocaleDateString(),
+        jugador: user.email.split('@')[0],
+        ganadas: firebase.firestore.FieldValue.increment(1),
+    }
+    return userRef.set(userData, {
+        merge: true
+    })*/
+}
+
+  async SetPuntajePerdio(nombre: string) {
+    /*const user = await this.getCurrentUser();
+    const date = new Date();
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`${nombre}/${user.uid}`);
+    const userData: any = {
+        uid: user.uid,
+        createdAt: date.toLocaleDateString(),
+        jugador: user.email.split('@')[0],
+        perdidas: firebase.firestore.FieldValue.increment(1),
+    }
+    return userRef.set(userData, {
+        merge: true
+    })*/
+  }
 }
