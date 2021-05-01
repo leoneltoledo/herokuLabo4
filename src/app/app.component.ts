@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
     private authService: AuthService) {}
 
   ngOnInit(): void {
+    this.router.navigate(['chat']);
     if(localStorage.getItem('user') !== null)
       this.isSignedIn = true;
     else

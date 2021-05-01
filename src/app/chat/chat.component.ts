@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from 'src/app/services/chat.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-chat',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  listadoMensajes?: any[];
 
-  constructor() { }
+  constructor(private chatService:  ChatService) {
+    this.chatService.getAll();
+   }
 
   ngOnInit(): void {
+    console.log(JSON.parse(localStorage.getItem('mensajes')));
+
   }
+
+
 
 }

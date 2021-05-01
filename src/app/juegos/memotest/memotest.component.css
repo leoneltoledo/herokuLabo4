@@ -1,0 +1,25 @@
+img.img-card:hover {
+    position: relative;
+    top: -0.5rem;
+  }
+  
+  img.img-card {
+    padding: 0.5rem;
+    height: 8rem;
+    width: auto;
+  }
+  
+
+.back {
+  background-color: #311B92;
+  color: white;
+}
+
+.back:hover {
+  background-color: #651FFF;
+
+}
+
+.btn-outline-dark:hover {
+  background-color: #311B92 !important;
+}

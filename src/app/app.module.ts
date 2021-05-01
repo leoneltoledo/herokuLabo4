@@ -26,9 +26,7 @@ import { PptComponent } from './juegos/ppt/ppt.component';
     ErrorComponent,
     QuienSoyComponent,
     RegistroComponent,
-    ChatComponent,
-    TatetiComponent,
-    PptComponent
+    ChatComponent
   ],
   imports: [
     BrowserModule,

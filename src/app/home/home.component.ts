@@ -12,11 +12,14 @@ export class HomeComponent implements OnInit {
   constructor(public AuthService: AuthService) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('user') !== null)
+    if(localStorage.getItem('user') !== null) {
       this.AuthService.isLoggedIn = true;
-    else
+      this.isSignedIn = true;
+    } 
+    else {
       this.AuthService.isLoggedIn = false;
+      this.isSignedIn = false;
+    }
+      
   }
-  
-
 }

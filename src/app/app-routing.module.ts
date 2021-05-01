@@ -7,15 +7,18 @@ import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { RegistroComponent } from './registro/registro.component';
 import { TatetiComponent } from './juegos/tateti/tateti.component';
 import { PptComponent } from './juegos/ppt/ppt.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
   {path: 'quien-soy', component: QuienSoyComponent},
-  {path: 'tateti', component: TatetiComponent},
-  {path: 'ppt', component: PptComponent},
+  //{path: 'tateti', component: TatetiComponent},
+  //{path: 'ppt', component: PptComponent},
   {path: 'error', component: ErrorComponent},
+  {path: 'juegos', loadChildren: () => import('./juegos/juegos.module').then(m => m.JuegosModule) },
+  {path: 'chat', component:ChatComponent}
 ];
 
 @NgModule({
