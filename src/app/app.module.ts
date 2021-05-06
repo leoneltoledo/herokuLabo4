@@ -3,19 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { ErrorComponent } from './error/error.component';
-import { QuienSoyComponent } from './quien-soy/quien-soy.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './componentes/home/home.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { ErrorComponent } from './componentes/error/error.component';
+import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
-import { RegistroComponent } from './registro/registro.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 import { AuthService } from './services/auth.service';
-import { ChatComponent } from './chat/chat.component';
-import { TatetiComponent } from './juegos/tateti/tateti.component';
-import { PptComponent } from './juegos/ppt/ppt.component';
+import { ChatComponent } from './componentes/chat/chat.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PhotoService } from './services/photo.service';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
+import { ListadoJuegosComponent } from './componentes/listado-juegos/listado-juegos.component';
+
 
 
 @NgModule({
@@ -26,16 +29,23 @@ import { PptComponent } from './juegos/ppt/ppt.component';
     ErrorComponent,
     QuienSoyComponent,
     RegistroComponent,
-    ChatComponent
+    ChatComponent,
+    EncuestaComponent,
+    ListadoJuegosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    PhotoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

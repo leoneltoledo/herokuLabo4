@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistroComponent } from './registro/registro.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
     private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.router.navigate(['chat']);
+    this.router.navigate(['']);
     if(localStorage.getItem('user') !== null)
       this.isSignedIn = true;
     else
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit{
   async Logout(){
     await this.authService.logout();
     this.isSignedIn = false;
+    localStorage.clear();
     this.router.navigate(['login']);
-    console.log(this.isSignedIn);
   }
 }

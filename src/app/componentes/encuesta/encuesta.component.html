@@ -1,0 +1,86 @@
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<br>
+
+<div class="container">
+    <form [formGroup]="formGroup" (ngSubmit)="aceptar()">
+      <div class="row">
+        <div class="col-md-12 mb-5">
+          <h2>Encuesta de calidad</h2>
+        </div>
+      </div>
+      <div class="row formulario">
+        <div class="col-md-6 mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName="nombre">
+          <small class="invalid" *ngIf="formGroup.get('nombre').errors?.required && formGroup.get('nombre').touched">El nombre es requerido</small>
+          <small class="invalid" *ngIf="formGroup.get('nombre').errors?.contieneEspacios && formGroup.get('nombre').touched">El nombre no puede tener espacios</small>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="apellido" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido" formControlName="apellido">
+          <small class="invalid" *ngIf="formGroup.get('apellido').errors?.required && formGroup.get('apellido').touched">El apellido es requerido</small>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="dni" class="form-label">Edad</label>
+          <input type="number" class="form-control" id="edad" placeholder="Ingrese edad" formControlName="edad">
+          <small class="invalid" *ngIf="formGroup.get('edad').errors?.required && formGroup.get('edad').touched">La edad es requerida</small>
+          <small class="invalid" *ngIf="formGroup.get('edad').errors?.min || formGroup.get('edad').errors?.max && formGroup.get('edad').touched">La edad debe estar entre 18-99</small>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="dni" class="form-label">Nro de Teléfono</label>
+          <input type="number" class="form-control" id="telefono" placeholder="Ingrese teléfono" formControlName="telefono">
+          <small class="invalid" *ngIf="formGroup.get('telefono').errors?.required && formGroup.get('telefono').touched">El númeroro de teléfono es requerido</small>
+          <small class="invalid" *ngIf="formGroup.get('telefono').errors?.min || formGroup.get('telefono').errors?.max || formGroup.get('telefono').errors?.pattern && formGroup.get('edad').touched">El teléfono deben ser 11 números</small>
+        </div>
+        <div class="col-md-12 mb-5">
+          <hr class="mb-4">
+          <h5 class="mb-3">¿Cuál es tu juego preferido?</h5>
+          <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="ppt" name="ppt" formControlName="ppt">
+              <label class="custom-control-label" for="ppt">Piedra, papel o tijera</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="memotest" formControlName="memotest">
+              <label class="custom-control-label" for="memotest">Memotest</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="tateti" formControlName="tateti">
+              <label class="custom-control-label" for="tateti">Ta te ti</label>
+          </div>
+          <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="batalla" formControlName="batalla">
+              <label class="custom-control-label" for="batalla">Batalla Naval</label>
+          </div>
+        </div>
+      </div>
+      <h5 class="mb-3">¿Crees que esta página necesita mejoras?</h5>
+      <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+          <input id="radioSi"  type="radio" class="custom-control-input" formControlName="mejoras" value="Si" checked required >
+          <label class="custom-control-label" for="radioSi">Si</label>
+          </div>
+          <div class="custom-control custom-radio">
+          <input id="radioNo" type="radio" class="custom-control-input" formControlName="mejoras"  required value="No">
+          <label class="custom-control-label" for="radioNo">No</label>
+          </div>
+          
+      </div>
+        <h6 class="mb-3">Cualquier tipo de feedback es bienvenido!  <small>(Opcional)</small></h6>         
+        <textarea id="tateti" formControlName="feedback"id="feedback" name="feedback" rows="2" cols="50"></textarea>
+        <hr class="mb-4">
+      <div class="row">
+        <div class="col-md-12 d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="formGroup.invalid">
+            Enviar encuesta
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>

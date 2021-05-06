@@ -1,0 +1,64 @@
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<br>
+<div class="container">
+    <h1>BattleShip</h1>
+        <h3>Selecciona la posición de tus naves y luego comienza a jugar!</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div id="board">
+                    </div>
+                </div>
+                <div class="col">
+                    <div id="boardAttack">
+                    </div>
+                </div>
+            </div>
+            <h4>Tus naves:</h4>
+            <div id="ships" class="row">
+                <div class="col"> 
+                    <div>
+                        <span>Portaviones</span><br>
+                        <span>Tamaño: 5</span><br>
+                        <span>Disponible: 1</span>
+                    </div>
+                    <div class="position"></div>
+                </div>
+                <div class="col"> 
+                    <div>
+                        <span>Acorazado</span><br>
+                        <span>Tamaño: 4</span><br>
+                        <span>Disponible: 1</span>
+                    </div>
+                    <div class="position"></div>
+                </div>
+                <div class="col"> 
+                    <div>
+                        <span>Submarino</span><br>
+                        <span>Tamaño: 3</span><br>
+                        <span>Disponible: 1</span>
+                    </div>
+                    <div class="position"></div>
+                </div>
+                <div class="col"> 
+                    <div>
+                        <span>Destructor</span><br>
+                        <span>Tamaño: 2</span><br>
+                        <span>Disponible: 2</span>
+                    </div>
+                    <div class="position"></div>
+                </div>           
+            </div>
+            <div class="row">
+                <button id="button" (click)="startGame()">Empezar juego</button>
+            </div>
+        </div>
+</div>
+        

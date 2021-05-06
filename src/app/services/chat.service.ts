@@ -22,4 +22,9 @@ export class ChatService {
         localStorage.setItem('mensajes', JSON.stringify(val))
       });
   }
+
+  saveMsg(msg: any): any{
+    console.log('Mensaje guardado: ' + msg.mensaje);
+    return this.chatCollection.add({...msg});
+  }
 }

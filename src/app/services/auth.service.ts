@@ -8,7 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AuthService {
   private dbUsers = 'usuarios';
-  private dbLogs = 'ingresos'
+  private dbLogs = 'ingresos';
   userList: AngularFirestoreCollection<Usuario>;
   logsList: AngularFirestoreCollection<any>;
   isLoggedIn = false;
@@ -17,7 +17,6 @@ export class AuthService {
     public firebaseAuth: AngularFireAuth) { 
       this.userList = db.collection(this.dbUsers);
       this.logsList = db.collection(this.dbLogs);
-
   }
 
   async signin(email: string, password: string){
@@ -41,12 +40,11 @@ export class AuthService {
     localStorage.removeItem('user');
   }
 
-  getAll(): AngularFirestoreCollection<Usuario>{
+  getAllUsers(): AngularFirestoreCollection<Usuario>{
     return this.userList;
   }
 
   create(usuario: Usuario): any{
-    //this.userList.add(usuario);
     console.log('Usuario creado');
     return this.userList.add({...usuario});
   }
@@ -55,12 +53,5 @@ export class AuthService {
     console.log('Log guardado');
     return this.logsList.add({...log});
   }
-
-  async SetPuntajeGano(nombre: string) {
-    
-}
-
-  async SetPuntajePerdio(nombre: string) {
-    
-  }
+  
 }

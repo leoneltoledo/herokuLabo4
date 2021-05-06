@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { ErrorComponent } from './error/error.component';
-import { QuienSoyComponent } from './quien-soy/quien-soy.component';
-import { RegistroComponent } from './registro/registro.component';
-import { TatetiComponent } from './juegos/tateti/tateti.component';
-import { PptComponent } from './juegos/ppt/ppt.component';
-import { ChatComponent } from './chat/chat.component';
+import { HomeComponent } from './componentes/home/home.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { ErrorComponent } from './componentes/error/error.component';
+import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
+import { ChatComponent } from './componentes/chat/chat.component';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
+import { ListadoJuegosComponent } from './componentes/listado-juegos/listado-juegos.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
   {path: 'quien-soy', component: QuienSoyComponent},
-  //{path: 'tateti', component: TatetiComponent},
-  //{path: 'ppt', component: PptComponent},
   {path: 'error', component: ErrorComponent},
-  {path: 'juegos', loadChildren: () => import('./juegos/juegos.module').then(m => m.JuegosModule) },
-  {path: 'chat', component:ChatComponent}
+  {path: 'juegos', loadChildren: () => import('./componentes/juegos/juegos.module').then(m => m.JuegosModule) },
+  {path: 'chat', component: ChatComponent},
+  {path: 'encuesta', component: EncuestaComponent},
+  {path: 'listado', component: ListadoJuegosComponent}
 ];
 
 @NgModule({
