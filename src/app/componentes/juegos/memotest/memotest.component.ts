@@ -99,7 +99,7 @@ public CardSelected(idx) {
                 this.cards[this.lastSelectId].active = true;
                 this.cards[idx].visible = false;
                 this.lastSelectId = null;
-            }, 0.5 * 1000);
+            }, 0.5 * 3000);
         }
     }
     if (this.requiredPositives === this.positiveCounter) {

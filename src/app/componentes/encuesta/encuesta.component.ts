@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DatabaseService } from 'src/app/services/database.service';
+import Swal  from 'sweetalert2';
 
 @Component({
   selector: 'app-encuesta',
@@ -10,7 +12,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class EncuestaComponent implements OnInit {
   public formGroup: FormGroup;
   public survey: any;
-  constructor(private fb: FormBuilder, private dbService: DatabaseService) { }
+  constructor(private fb: FormBuilder, private dbService: DatabaseService, private router: Router) { }
 
   ngOnInit(): void {
     this.formGroup = this.fb.group({
@@ -30,8 +32,17 @@ export class EncuestaComponent implements OnInit {
   public aceptar(): void{
     this.survey = this.formGroup.getRawValue();
     this.survey.usuario = JSON.parse(localStorage.getItem('user')).user.email;
-    //console.log(this.survey);
     this.dbService.saveSurvey(this.survey);
+
+    Swal.fire({
+      title: 'Muchas gracias!',
+      text: 'La encuesta ha sido enviada y será revisada.',
+      showCancelButton: true,
+      confirmButtonText: `Aceptar`,
+      confirmButtonColor: '#311B92'   
+    }).then(() => {
+      this.router.navigateByUrl('');
+    }); 
   }
 
 
