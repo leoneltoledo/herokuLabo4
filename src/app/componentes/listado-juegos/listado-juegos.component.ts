@@ -11,10 +11,16 @@ export class ListadoJuegosComponent implements OnInit {
   public tatetiResult: Array<any> = new Array();
   public batallaResult: Array<any> = new Array();
   public memotestResult: Array<any> = new Array();
+  public preguntadosResult: Array<any> = new Array();
+  public ahorcadoResult: Array<any> = new Array();
+  public mayorMenorResult: Array<any> = new Array();
   public listadoPpt: Array<any>;
   public listadoTateti: Array<any>;
   public listadoBatalla: Array<any>;
   public listadoMemo: Array<any>;
+  public listadoPreguntados: Array<any>;
+  public listadoAhorcado: Array<any>;
+  public listadoMayorMenor: Array<any>;
 
   constructor(private dbService: DatabaseService) {
   }
@@ -160,7 +166,105 @@ export class ListadoJuegosComponent implements OnInit {
           });
       })
 
+      this.dbService.getResults("preguntados")
+      .then(result => {
+          this.listadoPreguntados = result;
+          this.listadoPreguntados.forEach(res => {
+            var newPlayer = true;
+            if(!this.preguntadosResult.length){
+              this.preguntadosResult.push(res); 
+            }
+            else{
+              this.preguntadosResult.forEach(r => {
+                if(r.user == res.user){
+                  r.partidas += res.partidas;
+                  r.puntosAcumulados += res.puntosAcumulados;
+                  if(res.createdAt > r.createdAt){
+                    r.createdAt = res.createdAt;
+                  }  
+                }
+                else{
+                  this.preguntadosResult.forEach(result => {
+                    if(result.user == res.user){
+                      newPlayer = false;
+                    }
+                  });
+                  if(newPlayer)
+                    this.preguntadosResult.push(res);
+                }
+              });
+            }
+            
+          });
+      })
+
+      this.dbService.getResults("ahorcado")
+      .then(result => {
+          this.listadoAhorcado = result;
+          this.listadoAhorcado.forEach(res => {
+            var newPlayer = true;
+            if(!this.ahorcadoResult.length){
+              this.ahorcadoResult.push(res); 
+            }
+            else{
+              this.ahorcadoResult.forEach(r => {
+                if(r.user == res.user){
+                  r.partidas += res.partidas;
+                  r.puntosAcumulados += res.puntosAcumulados;
+                  if(res.createdAt > r.createdAt){
+                    r.createdAt = res.createdAt;
+                  }  
+                }
+                else{
+                  this.ahorcadoResult.forEach(result => {
+                    if(result.user == res.user){
+                      newPlayer = false;
+                    }
+                  });
+                  if(newPlayer)
+                    this.ahorcadoResult.push(res);
+                }
+              });
+            }
+            
+          });
+      })
+
+      this.dbService.getResults("mayormenor")
+      .then(result => {
+          this.listadoMayorMenor = result;
+          this.listadoMayorMenor.forEach(res => {
+            var newPlayer = true;
+            if(!this.mayorMenorResult.length){
+              this.mayorMenorResult.push(res); 
+            }
+            else{
+              this.mayorMenorResult.forEach(r => {
+                if(r.user == res.user){
+                  r.partidas += res.partidas;
+                  r.puntosAcumulados += res.puntosAcumulados;
+                  if(res.createdAt > r.createdAt){
+                    r.createdAt = res.createdAt;
+                  }  
+                }
+                else{
+                  this.mayorMenorResult.forEach(result => {
+                    if(result.user == res.user){
+                      newPlayer = false;
+                    }
+                  });
+                  if(newPlayer)
+                    this.mayorMenorResult.push(res);
+                }
+              });
+            }
+            
+          });
+      })
+
   }
+
+  
 
 
 

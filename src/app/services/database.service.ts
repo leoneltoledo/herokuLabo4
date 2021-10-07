@@ -10,11 +10,17 @@ export class DatabaseService {
   private dbTateti = 'tateti';
   private dbMemotest = 'memotest';
   private dbBatalla = 'batalla';
+  private dbAhorcado = 'ahorcado'
+  private dbMayorMenor = 'mayormenor'
+  private dbPreguntados = 'preguntados'
   surveyList: AngularFirestoreCollection<any>;
   tatetiList: AngularFirestoreCollection<any>;
   pptList: AngularFirestoreCollection<any>;
   memotestList: AngularFirestoreCollection<any>;
   batallaList: AngularFirestoreCollection<any>;
+  ahorcadoList: AngularFirestoreCollection<any>;
+  mayorMenorList: AngularFirestoreCollection<any>;
+  preguntadosList: AngularFirestoreCollection<any>;
   user: string;
 
   constructor(private db: AngularFirestore,  private afs: AngularFirestore) {
@@ -23,6 +29,9 @@ export class DatabaseService {
     this.pptList = db.collection(this.dbPpt);
     this.memotestList = db.collection(this.dbMemotest);
     this.batallaList = db.collection(this.dbBatalla);
+    this.ahorcadoList = db.collection(this.dbAhorcado);
+    this.mayorMenorList = db.collection(this.dbMayorMenor);
+    this.preguntadosList = db.collection(this.dbPreguntados);
     this.user = JSON.parse(localStorage.getItem('user')).user.email;
    }
 
@@ -48,6 +57,18 @@ export class DatabaseService {
       case 'tateti': { 
         console.log('Resultado guardado');
         return this.tatetiList.add({...result});
+      } 
+      case 'ahorcado': { 
+        console.log('Resultado guardado');
+        return this.ahorcadoList.add({...result});
+      }
+      case 'mayormenor': { 
+        console.log('Resultado guardado');
+        return this.mayorMenorList.add({...result});
+      } 
+      case 'preguntados': { 
+        console.log('Resultado guardado');
+        return this.preguntadosList.add({...result});
       } 
     } 
   }

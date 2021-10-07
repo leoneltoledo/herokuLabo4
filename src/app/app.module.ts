@@ -31,7 +31,7 @@ import { ListadoJuegosComponent } from './componentes/listado-juegos/listado-jue
     RegistroComponent,
     ChatComponent,
     EncuestaComponent,
-    ListadoJuegosComponent
+    ListadoJuegosComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,8 +8,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <br>
 
+
 <div class="container">
-    <div class="row mb-3">
+   <!-- <div class="row mb-3">
         <table class="table table-dark">
             <thead>
                 <tr class="text-left juego">
@@ -61,7 +62,7 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div>-->
 
     <div class="row mb-3">
         <table class="table table-dark">
@@ -89,7 +90,7 @@
             </tbody>
         </table>
     </div>
-
+<!--
     <div class="row mb-3">
         <table class="table table-dark">
             <thead>
@@ -108,6 +109,87 @@
             </thead>
             <tbody>
                 <tr *ngFor="let resultado of memotestResult">
+                    <td>{{resultado.user}} </td>
+                    <td>{{resultado.createdAt}}</td>
+                    <td>{{resultado.partidas}}</td>
+                    <td>{{resultado.puntosAcumulados}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>-->
+
+    <div class="row mb-3">
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-left juego">
+                    <th><h2>Preguntados</h2></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th class="w-25">Jugador</th>
+                    <th class="w-25">Fecha de la última partida</th>
+                    <th class="w-25">Partidas Jugadas</th>
+                    <th class="w-25">Puntos acumulados</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resultado of preguntadosResult">
+                    <td>{{resultado.user}} </td>
+                    <td>{{resultado.createdAt}}</td>
+                    <td>{{resultado.partidas}}</td>
+                    <td>{{resultado.puntosAcumulados}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row mb-3">
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-left juego">
+                    <th><h2>Mayor o Menor</h2></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th class="w-25">Jugador</th>
+                    <th class="w-25">Fecha de la última partida</th>
+                    <th class="w-25">Partidas Jugadas</th>
+                    <th class="w-25">Puntos acumulados</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resultado of mayorMenorResult">
+                    <td>{{resultado.user}} </td>
+                    <td>{{resultado.createdAt}}</td>
+                    <td>{{resultado.partidas}}</td>
+                    <td>{{resultado.puntosAcumulados}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row mb-3">
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-left juego">
+                    <th><h2>Ahorcado</h2></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th class="w-25">Jugador</th>
+                    <th class="w-25">Fecha de la última partida</th>
+                    <th class="w-25">Partidas Jugadas</th>
+                    <th class="w-25">Puntos acumulados</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resultado of ahorcadoResult">
                     <td>{{resultado.user}} </td>
                     <td>{{resultado.createdAt}}</td>
                     <td>{{resultado.partidas}}</td>
